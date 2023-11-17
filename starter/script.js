@@ -90,12 +90,19 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+  const length= prompt("Choose how many characters you want your password to be (must be between 8 and 128)");
+  alert ("you must select atleast one of the following 4 characater types ");
+  const lowercase=confirm("lowercase letters");
+  const uppercase=confirm("uppercase letters");
+  const numerical=confirm("numericals");
+  const specialChar=confirm("special characters");
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  const random = Math.floor(Math.random() * arr.length);
+  const item = arr[random];
+  return item;
 }
 
 // Function to generate password with user input
@@ -116,3 +123,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+ getPasswordOptions(); 
+ console.log(length);
