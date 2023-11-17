@@ -88,14 +88,24 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+var password = {
+  length:0,
+  lowercase:false,
+  uppercase:false,
+  numerical:false,
+  specialChar:false
+};
+
+
 // Function to prompt user for password options
 function getPasswordOptions() {
-  const length= prompt("Choose how many characters you want your password to be (must be between 8 and 128)");
-  alert ("you must select atleast one of the following 4 characater types ");
-  const lowercase=confirm("lowercase letters");
-  const uppercase=confirm("uppercase letters");
-  const numerical=confirm("numericals");
-  const specialChar=confirm("special characters");
+  password.length= prompt("Choose how many characters you want your password to be (must be between 8 and 128)");
+  alert ("you must select atleast one of the following 4 character types ");
+  password.lowercase=confirm("lowercase letters");
+  password.uppercase=confirm("uppercase letters");
+  password.numerical=confirm("numericals");
+  password.specialChar=confirm("special characters");
+ 
 }
 
 // Function for getting a random element from an array
@@ -125,4 +135,4 @@ function writePassword() {
 generateBtn.addEventListener('click', writePassword);
 
  getPasswordOptions(); 
- console.log(length);
+ console.log(password.length);
