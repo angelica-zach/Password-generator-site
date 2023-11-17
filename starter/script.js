@@ -87,7 +87,7 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
-
+// setting global for length, and character choices
 var password = {
   length:0,
   lowercase:false,
@@ -117,7 +117,12 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-
+if (password.length>=8 && password.length<=128){
+  for (password.length)
+}
+else {
+  prompt("Password length is not within bounds please try again");
+};
 }
 
 // Get references to the #generate element
@@ -134,5 +139,6 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
- getPasswordOptions(); 
- console.log(password.length);
+
+getPasswordOptions(); 
+console.log(password.length);
