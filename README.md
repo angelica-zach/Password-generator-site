@@ -8,7 +8,7 @@ In this project, i was furthering my knowledge of javascript by using functions 
 This is an example of a prompt for options the user recieves which is saved as eiher boolean true/ false
 
 
-![answer](/images/answer.png)
+![answer](/images/password.png)
 An example of what a user can expect to see
 ## Instalation
 Press the green code button and select your desired option  eg. for ssh copy and use git clone in the terminal 
