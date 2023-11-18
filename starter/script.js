@@ -105,22 +105,7 @@ function getPasswordOptions() {
   password.specialChar=confirm("Do you want to use special characters?");
  
 }
-getPasswordOptions();
-// checking if has all requirements
-if (password.length>=8 && password.length<=128){
- if(password.lowercase||password.uppercase||password.numerical||password.specialChar){
-  // if yes then writes password
-  writePassword();
-    }
-    else{
-      alert("You have not selected atleast one character type , please try again");
-      getPasswordOptions();
-    }
- }
-else{
-  alert("Character amount is not within accepted range , please try again");
-  getPasswordOptions();
-}
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -130,6 +115,11 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+  getPasswordOptions();
+  // checking if has all requirements
+if (password.length>=8 && password.length<=128){
+ if(password.lowercase||password.uppercase||password.numerical||password.specialChar){
+  // if yes then writes password
   // selecting which arrays are chosen by user
   var selectedArrays = [
     password.lowercase ? lowerCasedCharacters : [],
@@ -148,6 +138,14 @@ function generatePassword() {
   generatePassword += randomChar;
   }
 return generatePassword;
+    }
+    else{
+      alert("You have not selected atleast one character type , please try again")
+    }
+ }
+else{
+  alert("Character amount is not within accepted range , please try again");
+}
 }
 
 
