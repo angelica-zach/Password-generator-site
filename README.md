@@ -2,7 +2,7 @@
 ## Description
 In this project, i was furthering my knowledge of javascript by using functions instead of long loops or ifs. I also used filtering techniques to be able to select only the values the user selected to create the desired password
 ### Link to project
-
+ https://angelica-zach.github.io/Password-generator-site/
 ## Usage 
 ![prompt](images/prompt.png)
 This is an example of a prompt for options the user recieves which is saved as eiher boolean true/ false
