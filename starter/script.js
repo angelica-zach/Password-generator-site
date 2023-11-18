@@ -96,34 +96,61 @@ var password = {
   specialChar:false
 };
 
-
 // Function to prompt user for password options
 function getPasswordOptions() {
   password.length= prompt("Choose how many characters you want your password to be (must be between 8 and 128)");
-  alert ("you must select atleast one of the following 4 character types ");
-  password.lowercase=confirm("lowercase letters");
-  password.uppercase=confirm("uppercase letters");
-  password.numerical=confirm("numericals");
-  password.specialChar=confirm("special characters");
+  password.lowercase=confirm("Do you want to use lowercase letters?");
+  password.uppercase=confirm("Do you want to use uppercase letters?");
+  password.numerical=confirm("Do you want to use numericals?");
+  password.specialChar=confirm("Do you want to use special characters?");
  
+}
+getPasswordOptions();
+// checking if has all requirements
+if (password.length>=8 && password.length<=128){
+ if(password.lowercase||password.uppercase||password.numerical||password.specialChar){
+  // if yes then writes password
+  writePassword();
+    }
+    else{
+      alert("You have not selected atleast one character type , please try again");
+      getPasswordOptions();
+    }
+ }
+else{
+  alert("Character amount is not within accepted range , please try again");
+  getPasswordOptions();
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
   const random = Math.floor(Math.random() * arr.length);
-  const item = arr[random];
-  return item;
+  return arr[random];
 }
 
 // Function to generate password with user input
 function generatePassword() {
-if (password.length>=8 && password.length<=128){
-  for (password.length)
+  // selecting which arrays are chosen by user
+  var selectedArrays = [
+    password.lowercase ? lowerCasedCharacters : [],
+    password.uppercase ? upperCasedCharacters : [],
+    password.numerical ? numericCharacters : [],
+    password.specialChar ? specialCharacters : []
+  ].filter(array => array.length > 0);
+// creating blank for password so can be added in later and doesnt become local
+ var generatePassword="";
+
+  for (var i=0; i<password.length;i++)
+  // getting random array and character
+  {  var randomChar = getRandom(getRandom(selectedArrays));
+   
+  // Add the generated character to the  password
+  generatePassword += randomChar;
+  }
+return generatePassword;
 }
-else {
-  prompt("Password length is not within bounds please try again");
-};
-}
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
@@ -132,7 +159,6 @@ var generateBtn = document.querySelector('#generate');
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
-
   passwordText.value = password;
 }
 
@@ -140,5 +166,5 @@ function writePassword() {
 generateBtn.addEventListener('click', writePassword);
 
 
-getPasswordOptions(); 
-console.log(password.length);
+
+
